@@ -40,21 +40,21 @@ const testimonials = [
 const branches = [
   {
     city: 'New York',
-    image: '/branch-new-york.png',
+    image: '/branch-new-york.webp',
     alt: 'Brick-walled specialty coffee shop in SoHo, New York',
     description:
       '48 Mercer Street, SoHo. Our flagship roastery with a full espresso bar and daily cupping sessions.',
   },
   {
     city: 'Jakarta',
-    image: '/branch-jakarta.png',
+    image: '/branch-jakarta.webp',
     alt: 'Barista pouring latte art in a plant-filled Jakarta café',
     description:
       'Jl. Senopati No. 27, South Jakarta. A quiet garden café built for slow mornings and long talks.',
   },
   {
     city: 'Paris',
-    image: '/branch-paris.png',
+    image: '/branch-paris.webp',
     alt: 'Parisian café with marble tables and rattan chairs in Le Marais',
     description:
       '14 Rue des Rosiers, Le Marais. Pastries, pour-overs and a sunlit terrace on the corner.',
@@ -97,8 +97,14 @@ function App() {
         <section id="home" className="hero">
           <img
             className="hero-bg"
-            src="/coffee.png"
+            src="/coffee.webp"
+            srcSet="/coffee-800.webp 800w, /coffee.webp 1600w"
+            sizes="100vw"
+            width="1600"
+            height="781"
             alt="Espresso, latte and coffee beans on a marble counter"
+            fetchPriority="high"
+            decoding="async"
           />
           <div className="hero-overlay" aria-hidden="true" />
 
@@ -145,8 +151,12 @@ function App() {
               <div className="blob-wrap align-right">
                 <div className="blob">
                   <img
-                    src="/black-coffee.png"
+                    src="/black-coffee.webp"
+                    width="920"
+                    height="920"
                     alt="Pour-over coffee brewing into a glass carafe"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </div>
@@ -165,8 +175,12 @@ function App() {
               <div className="blob-wrap">
                 <div className="blob blob--alt">
                   <img
-                    src="/hot-coffee.png"
+                    src="/hot-coffee.webp"
+                    width="920"
+                    height="920"
                     alt="Fresh latte with latte art on a marble table"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </div>
@@ -238,7 +252,14 @@ function App() {
                 <article key={city} className="branch">
                   <div className="branch-thumb">
                     <div className="branch-media">
-                      <img src={image} alt={alt} />
+                      <img
+                        src={image}
+                        width="900"
+                        height="900"
+                        alt={alt}
+                        loading="lazy"
+                        decoding="async"
+                      />
                     </div>
                     <span className="branch-city">{city}</span>
                   </div>
